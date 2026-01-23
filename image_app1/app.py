@@ -1,19 +1,15 @@
-%cd /content/web-app1-lesson/image_app1
-
 # 必要なライブラリをインポート
 from flask import Flask, render_template
-from flask_cloudflared import run_with_cloudflared
 
 # Flaskを使用する準備
 app = Flask(__name__)
 app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 0
-run_with_cloudflared(app)  # Open a Cloudflare Tunnel when app is run
+app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 @app.route("/")
 def main():
     """トップページにアクセスしたときに実行される関数"""
     return render_template("index.html")
-
-
+ 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=5003)
