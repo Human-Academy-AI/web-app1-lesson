@@ -4,6 +4,6 @@ const changeBanana = () => {
 };
 
 // リンゴの画像を表示する
-const changeRaspi = () => {
+const changeApple = () => {
   document.getElementById("imagebox").src = "static/apple.jpg";
 };
